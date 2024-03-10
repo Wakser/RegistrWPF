@@ -1,0 +1,28 @@
+﻿<Window x:Class="RegistrWPF.Tasks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RegistrWPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Tasks" Height="491" Width="1010">
+    <Grid>
+        <DataGrid CanUserAddRows="False" AutoGenerateColumns="False" x:Name="dgTasks" FontSize="24" FontWeight="Bold" Margin="10 10 10 35">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Name}" x:Name="data_name" IsReadOnly="True" Header="Название" Width="250"/>
+                <DataGridTextColumn Binding="{Binding Path=Description}" IsReadOnly="True" Header="Описание" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=UserName}" IsReadOnly="True" Header="Кто добавил" Width="150"/>
+                <DataGridTemplateColumn Header="Удаление" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="DeleteTask" Tag="{Binding Path=Name}" Content="Удалить" Background="IndianRed" Width="150" HorizontalContentAlignment="Center"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавить задачу" Click="New_Task" Height="30" VerticalAlignment="Bottom" Margin="0 0 0 30"></Button>
+        <Button Content="Обновить задачи" Click="Refresh" Height="30" VerticalAlignment="Bottom" MaxHeight="100" Background="DeepPink"></Button>
+    </Grid>
+</Window>

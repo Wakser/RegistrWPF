@@ -1,0 +1,24 @@
+﻿<Window x:Class="RegistrWPF.NewTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RegistrWPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="NewTask" Height="450" Width="800">
+    <Grid Background="#ffdadada">
+        <Border Background="White" MaxWidth="600" MinWidth="400" Margin="15" VerticalAlignment="Center" Padding="30">
+            <Border.Effect>
+                <DropShadowEffect Color="LightGray" BlurRadius="30" ShadowDepth="0"/>
+            </Border.Effect>
+
+            <StackPanel>
+                <TextBlock Text="Новая Задача" FontSize="30" FontWeight="Bold"></TextBlock>
+                <TextBox x:Name="task_name" materialDesign:HintAssist.Hint="Введите название задачи" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 20 0 0"></TextBox>
+                <TextBox x:Name="task_desc" materialDesign:HintAssist.Hint="Введите описание задачи" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+                <Button Click="CreateNewTask" Content="Создать задачу" Margin="0 20 0 0"></Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
